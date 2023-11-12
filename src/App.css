@@ -1,0 +1,29 @@
+.css-hip9hq-MuiPaper-root-MuiAppBar-root a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  align-content: start;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.list-container div {
+  font-size: x-large;
+  /* text-transform: uppercase; */
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11rem;
+  height: 9rem;
+  border-radius: 1rem;
+  background-color: lightblue;
+  color: whitesmoke;
+}
