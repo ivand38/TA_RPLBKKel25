@@ -14,23 +14,40 @@ import ButtonAppBar from "./components/Navbar";
 import { LocProvider } from "./contexts/LocationContext";
 import Episode from "./pages/Episode";
 import { EpisodeProvider } from "./contexts/EpisodeContext";
+import Login from "./pages/Login";
+import { AuthProvider } from "./contexts/UserContext";
+import PublicRoutes from "./routes/PublicRoutes";
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 function App() {
   return (
     <>
-      <ButtonAppBar />
       <BrowserRouter>
-        <CharProvider>
-          <LocProvider>
-            <EpisodeProvider>
-              <Routes>
-                <Route path="/" exact element={<Character />}></Route>
-                <Route path="/Location" exact element={<Location />}></Route>
-                <Route path="/Episode" exact element={<Episode />}></Route>
-              </Routes>
-            </EpisodeProvider>
-          </LocProvider>
-        </CharProvider>
+        <AuthProvider>
+          <CharProvider>
+            <LocProvider>
+              <EpisodeProvider>
+                <Routes>
+                  <Route element={<PublicRoutes />}>
+                    <Route path="/login" element={<Login />}></Route>
+                  </Route>
+                </Routes>
+
+                <Routes>
+                  <Route element={<PrivateRoutes />}>
+                    <Route path="/" exact element={<Character />}></Route>
+                    <Route
+                      path="/Location"
+                      exact
+                      element={<Location />}
+                    ></Route>
+                    <Route path="/Episode" exact element={<Episode />}></Route>
+                  </Route>
+                </Routes>
+              </EpisodeProvider>
+            </LocProvider>
+          </CharProvider>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

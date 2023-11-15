@@ -11,19 +11,27 @@
   align-items: start;
   align-content: start;
   flex-direction: row;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .list-container div {
   font-size: x-large;
-  /* text-transform: uppercase; */
-  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 11rem;
   height: 9rem;
   border-radius: 1rem;
+  margin: 0.4rem;
   background-color: lightblue;
   color: whitesmoke;
+}
+
+.scale-up {
+  transition: transform 0.3s ease-in-out;
+}
+
+.scale-up:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
