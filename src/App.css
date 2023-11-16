@@ -27,6 +27,34 @@
   color: whitesmoke;
 }
 
+.detail {
+  padding: 1rem;
+}
+
+.detailTitle {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.5rem;
+}
+
+.detail h1 {
+  margin: 0 1rem;
+}
+
+.linkToDetail {
+  text-decoration: none;
+  text-align: center;
+}
+
+.detailList h2 {
+  text-align: center;
+  margin: 0;
+}
+.detailList {
+  text-align: center;
+}
+
 .scale-up {
   transition: transform 0.3s ease-in-out;
 }

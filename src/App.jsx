@@ -10,7 +10,6 @@ import "./App.css";
 import { CharProvider } from "./contexts/CharacterContext";
 import Character from "./pages/Character";
 import Location from "./pages/Location";
-import ButtonAppBar from "./components/Navbar";
 import { LocProvider } from "./contexts/LocationContext";
 import Episode from "./pages/Episode";
 import { EpisodeProvider } from "./contexts/EpisodeContext";
@@ -18,6 +17,7 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./contexts/UserContext";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
@@ -37,11 +37,16 @@ function App() {
                   <Route element={<PrivateRoutes />}>
                     <Route path="/" exact element={<Character />}></Route>
                     <Route
-                      path="/Location"
+                      path="/location"
                       exact
                       element={<Location />}
                     ></Route>
-                    <Route path="/Episode" exact element={<Episode />}></Route>
+                    <Route path="/episode" exact element={<Episode />}></Route>
+                    <Route
+                      path="/detail/:id"
+                      exact
+                      element={<Detail />}
+                    ></Route>
                   </Route>
                 </Routes>
               </EpisodeProvider>

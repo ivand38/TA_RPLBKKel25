@@ -13,7 +13,7 @@ export default function Character() {
       <Box>
         <div className="list-container">
           {chara?.map((c) => (
-            <CardList data={c} key={c.id} />
+            <CardList data={c} key={c.id} page={"char"} />
           ))}
         </div>
       </Box>
