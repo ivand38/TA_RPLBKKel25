@@ -3,14 +3,21 @@ import "./Login.css";
 import { useLogin } from "../contexts/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import rickandmorty from "../assets/images.jpeg";
+import { Button, TextField } from "@mui/material";
 
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const { setAuth } = useLogin();
+  const [showPass, setShowPass] = useState(false);
+  const { setAuth, Auth } = useLogin();
   const navigate = useNavigate();
+
+  const showPassword = () => {
+    setShowPass(!showPass);
+  };
 
   const handleLogin = async () => {
     try {
@@ -29,34 +36,47 @@ function Login() {
   return (
     <div className="Login">
       <div className="container">
-        <h2>Login</h2>
-        <form>
-          <label>
-            Username
-            <input
-              type="text"
+        <div>
+          <h2>Login</h2>
+          <form>
+            <TextField
+              label="Username"
+              variant="outlined"
+              size="small"
               value={formData.username}
               onChange={(event) =>
                 setFormData({ ...formData, username: event.target.value })
               }
             />
-          </label>
-          <br />
-          <label>
-            Password
-            <input
-              type="password"
+            <br />
+            <TextField
+              label="Password"
+              variant="outlined"
+              type={showPass ? "text" : "password"}
+              size="small"
               value={formData.password}
               onChange={(event) =>
                 setFormData({ ...formData, password: event.target.value })
               }
             />
-          </label>
-          <br />
-          <button type="button" onClick={handleLogin}>
-            Login
-          </button>
-        </form>
+            <div style={{ alignSelf: "start" }}>
+              <input
+                id="showPassword"
+                type="checkbox"
+                checked={showPass}
+                onChange={showPassword}
+              />
+              <label htmlFor="showPassword">Show Password</label>
+            </div>
+            <br />
+            <Button variant="outlined" onClick={handleLogin} fullWidth>
+              Login
+            </Button>
+          </form>
+        </div>
+        <div className="image">
+          <img src={rickandmorty} />
+        </div>
       </div>
     </div>
   );

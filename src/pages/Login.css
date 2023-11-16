@@ -7,13 +7,32 @@
 }
 
 .container {
+  display: flex;
   padding: 1rem;
   border: 1px solid black;
   border-radius: 1rem;
 }
 
+.image {
+  display: flex;
+  align-items: center;
+}
+
+.css-xsqe0f-MuiButtonBase-root-MuiButton-root {
+  transition: transform 0.3s ease-in-out;
+}
+
+.css-xsqe0f-MuiButtonBase-root-MuiButton-root:hover {
+  transform: scale(0.9);
+}
+
+h2 {
+  margin: 0rem 1rem 1rem 0rem;
+  text-align: left;
+}
+
 input {
-  margin-left: 5px;
+  margin: 10px 5px 0px 0px;
   border: 1px solid black;
   border-radius: 5px;
 }
