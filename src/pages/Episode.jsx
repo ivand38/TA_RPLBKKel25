@@ -11,7 +11,7 @@ export default function Episode() {
       <Box>
         <div className="list-container">
           {episode?.map((c) => (
-            <CardList data={c} key={c.id} />
+            <CardList data={c} key={c.id}/>
           ))}
         </div>
       </Box>

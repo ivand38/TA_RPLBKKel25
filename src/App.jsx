@@ -18,6 +18,7 @@ import { AuthProvider } from "./contexts/UserContext";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import Detail from "./pages/Detail";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
                       exact
                       element={<Detail />}
                     ></Route>
+                    <Route path="/profile" exact element={<Profile />}></Route>
                   </Route>
                 </Routes>
               </EpisodeProvider>

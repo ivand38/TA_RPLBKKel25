@@ -1,0 +1,33 @@
+.Profile {
+    text-align: center;
+    color: black;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  .App-header {
+    padding: 20px;
+    
+  }
+  
+  .profile-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+  }
+  
+  .profile-name {
+    text-align: center;
+  }
+
+  .profile-card img {
+    border-radius: 50%;
+  }
+
+  .profile-github{
+    text-align: center;
+  }

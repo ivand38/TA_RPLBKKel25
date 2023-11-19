@@ -14,22 +14,33 @@ function Login() {
   const [showPass, setShowPass] = useState(false);
   const { setAuth, Auth } = useLogin();
   const navigate = useNavigate();
+  const formRef = React.createRef();
 
   const showPassword = () => {
     setShowPass(!showPass);
   };
-
+  
   const handleLogin = async () => {
     try {
-      // const res = await axios.post("https://localhost:7192/login", formData, {
-      //   headers: { "Content-Type": "application/json" },
-      // });
-      // const id = res.data.id;
-      // const username = res.data.username;
-      setAuth({ username: "farhan" });
+      const res = await axios.post("http://localhost:5246/login", formData, {
+        headers: { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*" },
+      });
+      const id = res.data.Id;
+      const username = res.data.Username;
+      setAuth({ id, username});
       navigate("/");
+      localStorage.setItem("username", res.data.Username);
+      localStorage.setItem("password", formData.password);
     } catch {
       console.log("error");
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      // Submit the form when Enter key is pressed
+      handleLogin();
     }
   };
 
@@ -38,7 +49,7 @@ function Login() {
       <div className="container">
         <div>
           <h2>Login</h2>
-          <form>
+          <form ref={formRef}>
             <TextField
               label="Username"
               variant="outlined"
@@ -47,6 +58,7 @@ function Login() {
               onChange={(event) =>
                 setFormData({ ...formData, username: event.target.value })
               }
+              onKeyDown={handleKeyPress}
             />
             <br />
             <TextField
@@ -58,6 +70,7 @@ function Login() {
               onChange={(event) =>
                 setFormData({ ...formData, password: event.target.value })
               }
+              onKeyDown={handleKeyPress}
             />
             <div style={{ alignSelf: "start" }}>
               <input

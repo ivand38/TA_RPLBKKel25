@@ -1,11 +1,13 @@
 import { Button, Divider, Paper } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCharacter } from "../contexts/CharacterContext";
 
 export default function Detail() {
   const { id } = useParams();
   const charId = parseInt(id, 10);
   const chara = useCharacter();
+  const navigate = useNavigate();
+  
 
   const dataItem = chara?.filter((obj) => {
     return obj.id === charId;
@@ -17,7 +19,7 @@ export default function Detail() {
       <div className="detail">
         <Paper elevation={24}>
           <div className="detailTitle">
-            <Button variant="contained" href="/" color="error" size="small">
+            <Button variant="contained" onClick={() =>navigate("/") } color="error" size="small">
               back
             </Button>
             <h1>Character Detail</h1>

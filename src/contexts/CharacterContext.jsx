@@ -17,6 +17,7 @@ export function CharProvider({ children }) {
         .then((res) => {
           const responseData = res.data.results;
           console.log(res.data);
+          console.log(CharContext)
           setCharacter(responseData);
         })
         .catch((error) => {
