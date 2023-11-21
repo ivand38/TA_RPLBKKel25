@@ -5,5 +5,5 @@ export default function PrivateRoutes() {
   const { auth } = useLogin();
   console.log(auth);
   
-  return auth ? <Outlet /> : <Navigate to="/login" replace />;
+  return auth ? <Outlet /> : <Navigate to="/login" replace={true} />;
 }
